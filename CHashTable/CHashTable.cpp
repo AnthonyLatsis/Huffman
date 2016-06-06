@@ -63,6 +63,7 @@ Tdata CHashtable <Tkey, Tdata> :: operator [] (Tkey key) const
 template <typename Tkey, typename Tdata>
 void CHashtable <Tkey, Tdata> :: print(void (* function)(Tdata)) const
 {
+	std::cout << '\n';
 	for (int counter = ZERO; counter < tblsize; counter ++) {
 		table[counter] . print(function);
 	}

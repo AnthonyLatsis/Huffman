@@ -12,32 +12,32 @@ const Node * const HuffmanTreeDelegate::tree(std::vector<char> inputString) {
 
 //____________________________________________________
 
-//сделать  с хештаблицей
 std::vector<const Node *> HuffmanTreeDelegate::leaves(std::vector<char> inputString) {
 	std::vector<const Node *> frequencies;
 
-	auto repeat = 0;
+	const auto tblsize = ::hashTableSize(inputString); 
+	CHashtable<int, Node *> frequenciesTable = CHashtable<int, Node *>(tblsize, &::mapper);
 
-	std::vector<char>::const_iterator timer;
-	std::vector<char>::iterator counter;
-	std::vector<char>::iterator pointer;
-
-	for (counter = inputString.begin(); counter != inputString.end(); ++counter) {
-		pointer = std::find(inputString.begin(), counter, *counter);
-		if (pointer != counter && counter != inputString.begin()) {
+	for (int counter = 0; counter < inputString.size(); counter ++) {
+		if (frequenciesTable.contains((int)inputString[counter])) {
+			frequenciesTable[(int)inputString[counter]] -> priority ++;
 			continue;
+		} else {
+			Node * node = new Node(Optional_char((int)inputString[counter]), 1);
+			frequenciesTable.insert((int)inputString[counter], node);
 		}
-		for (timer = inputString.begin(); timer != inputString.end(); ++timer) {
-			if (*timer == *counter) {
-				repeat ++;
-			}
+	}
+	frequenciesTable.print(&Node::printLeaf);
+
+	for (int counter = 0; counter < inputString.size(); counter ++) {
+		if (frequenciesTable.contains((int)inputString[counter])) {
+			const Node * node = new Node(Optional_char(inputString[counter]),
+				frequenciesTable[(int)inputString[counter]] -> priority);
+			frequencies.push_back(node);
+			frequenciesTable.remove((int)inputString[counter]);
 		}
-		const Node * node = new Node(Optional_char(*counter), repeat);
-		frequencies.push_back(node);
-		repeat = 0;
 	}
 	sortFrequencies(frequencies);
-	VectorExtension::printVector(frequencies, "Это таблица частотности символов для исходной строки :\n\n", &Node::printLeaf);
 	return frequencies;
 }
 
@@ -62,6 +62,7 @@ const Node * const HuffmanTreeDelegate::buildTree(std::vector<const Node *> freq
 
 	return buildTree(frequencies);
 }
+
 //____________________________________________________
 
 void HuffmanTreeDelegate::sortFrequencies(std::vector<const Node *>& frequencies) {

@@ -13,7 +13,7 @@ public:
 	void  remove      (Tkey key);
 	void  print       (void (* function)(Tdata)) const;
 	bool  contains    (Tkey key)        const;
-	Tdata operator [] (Tkey key)		const;
+	Tdata operator [] (Tkey key) const;
 };
 
 

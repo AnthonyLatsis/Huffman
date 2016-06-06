@@ -3,7 +3,7 @@
 struct Node {
 	const Optional_char symbol;
 
-	const int priority;
+	int priority;
 
 	const Node * left;
 	const Node * right;
@@ -18,7 +18,7 @@ struct Node {
 
 /* Функция печати листов */
 
-	static void printLeaf(const Node * const node);
+	static void printLeaf(Node * node);
 
 /* Метод и смежная ему функция для печати в виде дерева, постфиксно */
 

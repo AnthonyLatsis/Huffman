@@ -6,7 +6,7 @@ public:
 
 /* Соединяет кодированные дерево и строку и возвращает сообщение
 */
-	static const std::vector<bool> encodedMessage(const std::vector<char> inputString);
+	static const std::vector<bool> encodedMessage(std::vector<char> inputString, bool registerSensitive);
 
 /* Кодирует строку
 */
@@ -15,6 +15,8 @@ public:
 /* Кодирует дерево
 */
 	static const std::vector<bool> encodedTree(const HuffmanTree * const tree);
+
+	static void ignoreRegister(std::vector<char>& inputString);
 };
 
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

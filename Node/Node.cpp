@@ -5,7 +5,8 @@
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 Node::Node(Optional_char symbol, int priority): 
-	symbol(symbol), priority(priority) {
+	symbol(symbol) {
+	this -> priority = priority;
 	left             = nullptr;
 	right            = nullptr;
 }
@@ -20,13 +21,11 @@ Node::Node(const Node * const left, const Node * const right):
 
 //____________________________________________________
 
-void Node::printLeaf(const Node * const node) {
+void Node::printLeaf(Node * node) {
 	if (node == nullptr) return; 
-	std::cout << "[ '";
+	std::cout << "'";
 	node -> symbol.print();
-	std::cout << "' , " << node -> priority;
-	std::cout << " ]\n";
-
+	std::cout << "' : " << node -> priority << "\n";
 }
 
 //____________________________________________________
