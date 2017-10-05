@@ -12,7 +12,7 @@ const std::vector<bool> HuffmanCoder::encodedMessage(std::vector<char> inputStri
 
 	const HuffmanTree * const tree = new HuffmanTree(inputString);
 
-	tree -> image("\nОно же, теперь наглядно");
+	tree -> image("\nThe same tree, visualized");
 
     const CHashtable<int, const SymbolCode * const> * const codes = tree -> findSymbolCodes(inputString);
 
@@ -21,9 +21,9 @@ const std::vector<bool> HuffmanCoder::encodedMessage(std::vector<char> inputStri
 
 	treeCode.insert(treeCode.end(), stringCode.begin(), stringCode.end());
 
-	std::cout << "\nДлина исходной строки: " << inputString.size() * 8 << "\n";
-	std::cout << "Длина закодированной строки:" << treeCode.size() << "\n\n";
-	std::cout << "Коэффициент сжатия: ";
+	std::cout << "\nInput string length: " << inputString.size() * 8 << "\n";
+	std::cout << "Encoded string length:" << treeCode.size() << "\n\n";
+	std::cout << "Compression coefficient: ";
 	printf("%f\n\n", ((float)(inputString.size() * 8) / (float)treeCode.size()));
 	std::cout << "<><><><><><><><><><><><><>\n";
 
@@ -40,8 +40,8 @@ const std::vector<bool> HuffmanCoder::encodedString(const std::vector<char> inpu
 		stringCode.insert(stringCode.end(), (* codes)[(int)inputString[count]] -> code.begin(),
 			(* codes)[(int)inputString[count]] -> code.end());
 	}
-	VectorExtension::printVector(stringCode, "Это закодированная строка\n\n");
-	std::cout << "\nЭто коды символов\n\n";
+	VectorExtension::printVector(stringCode, "This is the encoded string:\n\n");
+	std::cout << "\nThese are the symbol codes:\n\n";
 	codes -> print(&SymbolCode::print);
 	std::cout << "\n<><><><><><><><><><><><><>\n";
 	return stringCode;
@@ -51,7 +51,7 @@ const std::vector<bool> HuffmanCoder::encodedString(const std::vector<char> inpu
 
 const std::vector<bool> HuffmanCoder::encodedTree(const HuffmanTree * const tree) {
 	const std::vector<bool> treeCode = tree -> encode();
-	VectorExtension::printVector(treeCode, "Это закодированное дерево\n\n");
+	VectorExtension::printVector(treeCode, "This is the encoded tree:\n\n");
 	return treeCode;
 }
 

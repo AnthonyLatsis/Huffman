@@ -7,7 +7,7 @@
 HuffmanTree::HuffmanTree(const std::vector<char> inputString, HuffmanTreeOrientation orientation):
 	root(buildDelegate.tree(inputString)) {
 	this -> orientation = orientation;
-	root -> printTree("Это дерево Хаффмана. Синопсис: [узел[левая ветка][правая ветка]]\n\n");
+	root -> printTree("This is the Huffman tree. Synopsis: [node[left branch][right branch]]\n\n");
 }
 
 //____________________________________________________

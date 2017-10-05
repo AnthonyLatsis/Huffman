@@ -5,7 +5,7 @@
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 const Node * const HuffmanTreeDelegate::tree(std::vector<char> inputString) {
-	VectorExtension::printVector(inputString, "Это исходная строка : ");
+	VectorExtension::printVector(inputString, "This is the input string: ");
 	std::vector<const Node *> frequencies = leaves(inputString);
 	return buildTree(frequencies);
 }

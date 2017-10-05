@@ -38,25 +38,25 @@ int main() {
               \|/
 */
 	std::vector<char> input;
-	std::ifstream file;
+	/*std::ifstream file;
 	file.open ("text.txt");
     char ch;
 	while (file >> std::noskipws >> ch) {
     	input.push_back(ch);
 	}
-	file.close();
+	file.close();*/
 
 /*============ Самому вбивать ============
 	           |
               \|/
 */
 
-	/*char character;
+	char character;
 	for (int counter = 0; counter >= 0; counter ++){
 		scanf("%c", &character);
 		if (character == '\n') break;
 		else input.push_back(character);
-	}*/
+	}
 
 /*========== Оставить, это нужно ==========
 			   |
