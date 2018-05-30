@@ -1,15 +1,18 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
-class VectorExtension {
-	
-public:
-/* Функция печати для вектора, принимающая сам вектор, какое-либо сообщение
-   к напечатанному и функцию, осуществляющую печать элемента определенного типа/класса
-*/
-   
-template <typename vectorType>
-static void printVector(const std::vector<vectorType> someVector, const char * message, void (* function)(vectorType) = nullptr, bool trail = true);
+template <typename T>
+void VectorExtension :: printVector(const std::vector<T> vector,
+ 									const char * message,
+  									void (* function)(T),
+  							 		bool trail) {
+	if (message)
+		std::cout << "\n" << message;
 
-};
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
+	for (auto elt: vector) {
+		if (!function)
+			std::cout << elt;
+		else
+			function(elt);
+	}
+	if (trail)
+		std::cout << "\n\n<><><><><><><><><><><><><>\n";
+}
