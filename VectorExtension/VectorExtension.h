@@ -1,9 +1,8 @@
 
 template <typename T>
-void VectorExtension :: printVector(const std::vector<T> vector,
- 									const char * message,
-  									void (* function)(T),
-  							 		bool trail) {
+void printVector(const std::vector<T> vector,
+ 				 				 const char * message, void (* function)(T),
+  							 bool trail) {
 	if (message)
 		std::cout << "\n" << message;
 

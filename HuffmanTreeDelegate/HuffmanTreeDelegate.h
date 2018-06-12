@@ -1,5 +1,3 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
-
 class HuffmanTreeDelegate {
 
 public:
@@ -23,5 +21,3 @@ public:
 */
 	static bool compareNodesByPriority(const Node * const first, const Node * const second);
 };
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

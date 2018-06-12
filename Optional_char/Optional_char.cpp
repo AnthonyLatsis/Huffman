@@ -1,83 +1,52 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
-
 #include "Optional_char.h"
 
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 Optional_char :: Optional_char() {
 	value = None;
 }
 
-//____________________________________________________
-
 Optional_char :: Optional_char(char symbol) {
-	value 		   = Some;
-	this -> symbol = symbol;
+	value = Some;
+	this->symbol = symbol;
 }
-
-//____________________________________________________
 
 bool Optional_char :: operator == (char * nil) const {
-	if (this -> value == None && nil == nullptr) {
+	if (this->value == None && !nil) {
 		return true;
-	} else {
-		return false;
-	}	
+	return false;	
 }
-
-//____________________________________________________
 
 bool Optional_char :: operator == (char symbol) const {
-	if (this -> value == Some && this -> symbol == symbol) {
+	if (this->value == Some && this->symbol == symbol) {
 		return true;
-	} else { 
-		return false;
-	}
+	return false;
 }
-
-//____________________________________________________
 
 void Optional_char :: operator = (char * nil) {
-	if (nil == nullptr) {
+	if (!nil)
 		value = None;
-	}
 }
-
-//____________________________________________________
 
 void Optional_char :: operator = (char symbol) {
 	value = Some;
-	this -> symbol = symbol;
+	this->symbol = symbol;
 }
-
-//____________________________________________________
 
 void Optional_char :: print() const{
-	if (value == None) {
+	if (value == None)
 		std::cout << "nil";
-	} else {
+	else
 		std::cout << symbol;
-	}
 }
-
-//____________________________________________________
 
 char Optional_char::get() const {
-	if (value == None) {
+	if (value == None)
 		return ' ';
-	} else {
-		return symbol;
-	}
+	return symbol;
 }
-
-//____________________________________________________
 
 char Optional_char::operator ! () const {
-	if (value == None) {
+	if (value == None)
 		exit(EXIT_FAILURE);
-	} else {
-		return symbol;
-	}
+	return symbol;
 }
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

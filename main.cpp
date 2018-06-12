@@ -33,10 +33,6 @@ size_t hashTableSize(std::vector<char> str) {
 
 int main() {
 
-/*============== Из файла ================
-	           |
-              \|/
-*/
 	std::vector<char> input;
 	/*std::ifstream file;
 	file.open ("text.txt");
@@ -46,11 +42,6 @@ int main() {
 	}
 	file.close();*/
 
-/*============ Самому вбивать ============
-	           |
-              \|/
-*/
-
 	char character;
 	for (int counter = 0; counter >= 0; counter ++){
 		scanf("%c", &character);
@@ -58,10 +49,6 @@ int main() {
 		else input.push_back(character);
 	}
 
-/*========== Оставить, это нужно ==========
-			   |
-              \|/
-*/
 	std::vector<char> inputString;
 
 	for (int counter = 0; counter < input.size(); counter ++) {
@@ -70,7 +57,6 @@ int main() {
 		}
 	}
 	input.clear();
-
 
 	std::vector<bool> code;
 	code = HuffmanCoder::encodedMessage(inputString, false); // в code как раз будет лежать закодированный текст

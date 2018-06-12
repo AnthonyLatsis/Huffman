@@ -1,9 +1,4 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
-// Это старая библиотека, написанная мной несколько месяцев назад. Мне лень сейчас ее оптимизировать
-// да и по сути это не особо-то давит.
-
-/* Зашаблонить если будет не лень, переписать нормально имена */
 class TreeImageDelegate {
 
 	static Picture * picture_tree(const Node * tree);
@@ -34,7 +29,6 @@ class TreeImageDelegate {
 
 	static int box_size(const Node * node = nullptr);
 public:
-		static void treeImage(const Node * tree);
+	static void treeImage(const Node * tree);
 
 };
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

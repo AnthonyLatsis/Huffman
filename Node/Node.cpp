@@ -1,39 +1,26 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
-
 #include "Node.h"
 
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 Node::Node(Optional_char symbol, int priority): 
-	symbol(symbol) {
-	this -> priority = priority;
-	left             = nullptr;
-	right            = nullptr;
-}
-
-//____________________________________________________
+	symbol(symbol), priority(priority), left(nullptr), right(nullptr) {}
 
 Node::Node(const Node * const left, const Node * const right): 
-	priority(left -> priority + right -> priority), symbol(Optional_char()) {
-	this -> left  = left;
-	this -> right = right; 
+	priority(left->priority + right->priority), symbol(Optional_char()) {
+	this->left  = left;
+	this->right = right; 
 }
-
-//____________________________________________________
 
 void Node::printLeaf(Node * node) {
 	if (node == nullptr) return; 
 	std::cout << "'";
-	node -> symbol.print();
-	std::cout << "' : " << node -> priority << "\n";
+	node->symbol.print();
+	std::cout << "' : " << node->priority << "\n";
 }
-
-//____________________________________________________
 
 void Node::printTree(const Node * const node) {
 	if (node == nullptr) return; 
 	std::cout << "[";
-	node -> symbol.print();
+	node->symbol.print();
 	
 	printTree(node -> left);
 	printTree(node -> right);
@@ -41,12 +28,8 @@ void Node::printTree(const Node * const node) {
 	std::cout << "]";
 }
 
-//____________________________________________________
-
 void Node::printTree(const std::string message) const {
 	std::cout << "\n" << message;
 	printTree(this);
 	std::cout << "\n\n<><><><><><><><><><><><><>\n";
 }
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
