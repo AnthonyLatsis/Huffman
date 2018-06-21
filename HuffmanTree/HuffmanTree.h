@@ -25,14 +25,12 @@ public:
 private:
 	static void deleteTree(const Node *const node);
 
-/// Populates a hashtable with the symbol codes.
+	/// Populates a hashtable with the symbol codes.
 	static void findSymbolCodes(const Node *const node, std::vector<bool>& code, CHashtable<int, const SymbolCode * const>& codes);
 
-/// Return the tree as a binary sequence.
+	/// Return the tree as a binary sequence.
 	static void encode(const Node *const node, std::vector<bool>& code);
 
-/// Return the encoded node as a binary sequence.
+	/// Return the encoded node as a binary sequence.
 	static const std::vector<bool> encodeLeaf(const Node * const node);
 };
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

@@ -3,7 +3,7 @@
 
 Picture::Picture(size_t height, size_t length):
 	_height(height), _length(length) {
-	array   = allocateArray(height, length);
+	array = allocateArray(height, length);
 }
 
 Picture :: ~Picture(){
@@ -21,7 +21,7 @@ char ** Picture::allocateArray(size_t height, size_t length) {
 	return array;
 }
 
-char * Picture::operator [] (const size_t index) const {
+char * Picture::operator [](const size_t index) const {
 	return array[index];
 }
 

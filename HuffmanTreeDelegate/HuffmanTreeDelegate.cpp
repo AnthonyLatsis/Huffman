@@ -1,16 +1,11 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 #include "HuffmanTreeDelegate.h"
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 const Node * const HuffmanTreeDelegate::tree(std::vector<char> inputString) {
 	VectorExtension::printVector(inputString, "This is the input string: ");
 	std::vector<const Node *> frequencies = leaves(inputString);
 	return buildTree(frequencies);
 }
-
-//____________________________________________________
 
 std::vector<const Node *> HuffmanTreeDelegate::leaves(std::vector<char> inputString) {
 	std::vector<const Node *> frequencies;
@@ -41,8 +36,6 @@ std::vector<const Node *> HuffmanTreeDelegate::leaves(std::vector<char> inputStr
 	return frequencies;
 }
 
-//____________________________________________________
-
 const Node * const HuffmanTreeDelegate::buildTree(std::vector<const Node *> frequencies) {
 	if (frequencies.size() == 1) {
 		return *(frequencies.begin());
@@ -51,7 +44,6 @@ const Node * const HuffmanTreeDelegate::buildTree(std::vector<const Node *> freq
 
 	const Node * const left  = *(counter ++);
 	const Node * const right = *(counter);
-
 	const Node * const newNode = new Node(left, right);	
 
 	frequencies.erase(frequencies.begin());
@@ -63,16 +55,12 @@ const Node * const HuffmanTreeDelegate::buildTree(std::vector<const Node *> freq
 	return buildTree(frequencies);
 }
 
-//____________________________________________________
-
 void HuffmanTreeDelegate::sortFrequencies(std::vector<const Node *>& frequencies) {
-	std::sort(frequencies.begin(), frequencies.end(), &HuffmanTreeDelegate::compareNodesByPriority);
+	std::sort(frequencies.begin(), f
+            requencies.end(), 
+            &HuffmanTreeDelegate::compareNodesByPriority);
 }
-
-//____________________________________________________
 
 bool HuffmanTreeDelegate::compareNodesByPriority(const Node * const first, const Node * const second) {
-	return (first -> priority < second -> priority);
+	return (first->priority < second->priority);
 }
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//

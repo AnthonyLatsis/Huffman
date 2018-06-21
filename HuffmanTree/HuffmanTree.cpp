@@ -1,8 +1,5 @@
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 #include "HuffmanTree.h"
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 HuffmanTree::HuffmanTree(const std::vector<char> inputString,
 								 				 HuffmanTreeOrientation orientation):
@@ -60,8 +57,6 @@ void HuffmanTree::findSymbolCodes(const Node * const node,
 	code.erase(code.end());
 }
 
-//____________________________________________________
-
 void HuffmanTree::encode(const Node * const node, std::vector<bool>& code) {
 	if (node->left)
 		encode(node->left, code);
@@ -76,8 +71,6 @@ void HuffmanTree::encode(const Node * const node, std::vector<bool>& code) {
 	code.push_back(false);
 }
 
-//____________________________________________________
-
 const std::vector<bool> HuffmanTree::encodeLeaf(const Node * const node) {
 	std::vector<bool> code;
 	int symbol = !(node->symbol);	
@@ -90,5 +83,3 @@ const std::vector<bool> HuffmanTree::encodeLeaf(const Node * const node) {
 	std::reverse(code.begin(), code.end());
 	return code;
 }
-
-//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
